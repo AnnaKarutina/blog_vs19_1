@@ -1,6 +1,6 @@
 <?php
 // Project Name
-define('PROJECT_NAME', 'pvk');
+define('PROJECT_NAME', 'blog');
 // App Root Directory
 define('APPROOT', dirname(dirname(__FILE__)) );
 // URL Root
