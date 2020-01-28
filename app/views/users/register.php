@@ -11,7 +11,8 @@
         <form class="form" role="form" action="<?php echo URLROOT.'/users/register'?>" method="post">
           <div class="form-group">
             <label for="name">Name<sup>*</sup></label>
-            <input type="text" class="form-control" id="name" placeholder="Full name" name="name">
+            <input type="text" class="form-control <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" id="name" placeholder="Full name" name="name">
+            <span class="invalid-feedback"><?php echo $data['name_err'];?></span>
           </div>
           <div class="form-group">
             <label for="email">Email<sup>*</sup></label>
