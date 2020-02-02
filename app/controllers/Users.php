@@ -29,6 +29,10 @@ class Users extends Controller
       if(empty($data['name'])) {
         $data['name_err'] = 'Please enter the name';
       }
+      if(empty($data['email'])) {
+        $data['email_err'] = 'Please enter the email';
+      }
+
     }
       print_r($data);
       $this->view('users/register', $data);
