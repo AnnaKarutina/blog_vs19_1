@@ -55,7 +55,7 @@ class Users extends Controller
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
       if($this->userModel->register($data)){
-          header('Location: '.URLROOT.'/'.'users/login');
+          redirect('users/login');
         } else {
           die('Something went wrong');
         }
@@ -121,12 +121,12 @@ class Users extends Controller
     $_SESSION['user_id'] = $user->id;
     $_SESSION['user_name'] = $user->name;
     $_SESSION['user_email'] = $user->email;
-    header('Location: '.URLROOT.'/'.'pages/index');
+    redirect('pages/index');
   }
 
   public function logout(){
     session_unset();
     session_destroy();
-    header('Location: '.URLROOT.'/'.'users/login');
+    redirect('users/login');
   }
 }
