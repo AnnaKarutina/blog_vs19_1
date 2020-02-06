@@ -101,7 +101,6 @@ class Users extends Controller
         $loggedInUser = $this->userModel->login($data['email'], $data['password']);
         if($loggedInUser){
           $this->createUserSession($loggedInUser);
-          header('Location: '.URLROOT.'/'.'pages/index');
         } else {
           $data['password_err'] = 'Password is incorrect';
           $this->view('users/login', $data);
@@ -122,6 +121,12 @@ class Users extends Controller
     $_SESSION['user_id'] = $user->id;
     $_SESSION['user_name'] = $user->name;
     $_SESSION['user_email'] = $user->email;
-    print_r($_SESSION);
+    header('Location: '.URLROOT.'/'.'pages/index');
+  }
+
+  public function logout(){
+    session_unset();
+    session_destroy();
+    header('Location: '.URLROOT.'/'.'users/login');
   }
 }
