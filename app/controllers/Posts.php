@@ -19,4 +19,11 @@ class Posts extends Controller
     );
     $this->view('posts/index', $data);
   }
+  public function show($id){
+    $post = $this->postModel->getPostById($id);
+    $data = array(
+      'post' => $post
+    );
+    $this->view('posts/show', $data);
+  }
 }
